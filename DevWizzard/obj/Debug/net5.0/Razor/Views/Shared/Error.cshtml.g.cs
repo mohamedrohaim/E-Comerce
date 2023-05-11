@@ -26,8 +26,15 @@ using DevWizzard.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "F:\DotNetProjects\DevWizzard\DevWizzard\Views\_ViewImports.cshtml"
+using DataAccessLayer.Entities;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d7458b9f009ca54cf3a8748fd7a939468e342562", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e42a164063fb766482905ee761637def794f39f8", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     #nullable disable

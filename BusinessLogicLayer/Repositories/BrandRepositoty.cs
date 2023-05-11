@@ -12,6 +12,9 @@ namespace BusinessLogicLayer.Repositories
     public class BrandRepositoty : GenericRepository<Brand>,IBrandRepository
     {
         private readonly AppDbContext _appDbContext;
+
+        
+
         public BrandRepositoty(AppDbContext appDbContext) :base(appDbContext)
         {
             _appDbContext = appDbContext;

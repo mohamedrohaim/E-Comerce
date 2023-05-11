@@ -17,7 +17,7 @@ namespace BusinessLogicLayer.Repositories
         {
             _appDbContext = appDbContext;
         }
-
+        
         public int Add(T item)
         {
             _appDbContext.Set<T>().Add(item);

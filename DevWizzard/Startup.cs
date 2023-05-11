@@ -1,3 +1,5 @@
+using BusinessLogicLayer.Interfaces;
+using BusinessLogicLayer.Repositories;
 using DataAccessLayer.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +29,7 @@ namespace DevWizzard
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
     });
+            services.AddScoped<IBrandRepository, BrandRepositoty>();
 
         }
 

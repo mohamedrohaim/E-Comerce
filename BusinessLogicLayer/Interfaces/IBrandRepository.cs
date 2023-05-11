@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Interfaces
 {
-    internal interface IBrandRepository:IGenericRepository<Brand>
+    public interface IBrandRepository:IGenericRepository<Brand>
     {
         
 
