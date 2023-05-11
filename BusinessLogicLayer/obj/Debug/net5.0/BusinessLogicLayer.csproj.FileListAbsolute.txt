@@ -1,0 +1,15 @@
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.deps.json
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.dll
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\bin\Debug\net5.0\BusinessLogicLayer.pdb
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\bin\Debug\net5.0\DataAccessLayer.dll
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.AssemblyReference.cache
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.AssemblyInfoInputs.cache
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.AssemblyInfo.cs
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.csproj.CopyComplete
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.dll
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\refint\BusinessLogicLayer.dll
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\BusinessLogicLayer.pdb
+F:\DotNetProjects\DevWizzard\BusinessLogicLayer\obj\Debug\net5.0\ref\BusinessLogicLayer.dll

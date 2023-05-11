@@ -1,0 +1,15 @@
+F:\DotNetProjects\DevWizzard\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.deps.json
+F:\DotNetProjects\DevWizzard\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+F:\DotNetProjects\DevWizzard\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.AssemblyReference.cache
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfoInputs.cache
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfo.cs
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.dll
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\refint\DataAccessLayer.dll
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.pdb
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\ref\DataAccessLayer.dll
+F:\DotNetProjects\DevWizzard\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.runtimeconfig.json
+F:\DotNetProjects\DevWizzard\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.runtimeconfig.dev.json
+F:\DotNetProjects\DevWizzard\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.genruntimeconfig.cache
