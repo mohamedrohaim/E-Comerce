@@ -11,6 +11,7 @@ namespace DataAccessLayer.Entities
     {
         [Key]
         public int brand_id { get; set; }
+        [Required(ErrorMessage ="name is required")]
         public string brand_name { get; set; }
     }
 }
