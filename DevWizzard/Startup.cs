@@ -31,6 +31,7 @@ namespace DevWizzard
     });
             services.AddScoped<IBrandRepository, BrandRepositoty>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
 
         }
 

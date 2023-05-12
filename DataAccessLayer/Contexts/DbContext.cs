@@ -14,11 +14,20 @@ namespace DataAccessLayer.Contexts
         {
 
         }
-        
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                 .HasOne(P => P.discount)
+                 .WithMany(D => D.products)
+                 .HasForeignKey(P => P.discount_id)
+                 .HasPrincipalKey(P => P.discount_id);
+        }
 
 
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

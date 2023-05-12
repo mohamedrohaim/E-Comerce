@@ -400,3 +400,4 @@ F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Brand\Updat
 F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Delete.cshtml.g.cs
 F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
 F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Update.cshtml.g.cs
+F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Discount\Index.cshtml.g.cs

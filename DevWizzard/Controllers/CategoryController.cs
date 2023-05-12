@@ -65,7 +65,6 @@ namespace PresentationLayer.Controllers
                     _categoryRepository.Delete(category);
                     TempData["AddedSuccessfuly"] = "Categoty deleted Successfully";
                     return RedirectToAction(nameof(Index));
-
                 }
                 catch (Exception ex)
                 {
@@ -96,7 +95,7 @@ namespace PresentationLayer.Controllers
             {
                 try
                 {
-                    _categoryRepository.Update(category);
+                     _categoryRepository.Update(category);
                     TempData["AddedSuccessfuly"] = "Category Updeted Successfully";
                     return RedirectToAction(nameof(Index));
 

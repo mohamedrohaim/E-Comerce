@@ -4,14 +4,16 @@ using DataAccessLayer.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230512124905_add discount and product tables")]
+    partial class adddiscountandproducttables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("created_at")
+                    b.Property<DateTime>("created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("discount_description")
@@ -77,7 +79,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<decimal>("maxValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime?>("updated_at")
+                    b.Property<DateTime>("updated_at")
                         .HasColumnType("datetime2");
 
                     b.HasKey("discount_id");
@@ -92,7 +94,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("created_at")
+                    b.Property<DateTime>("created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("description")
@@ -115,7 +117,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("quantity")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("updated_at")
+                    b.Property<DateTime>("updated_at")
                         .HasColumnType("datetime2");
 
                     b.HasKey("order_id");
