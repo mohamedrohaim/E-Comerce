@@ -9,40 +9,40 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Controllers
 {
-    public class BrandController : Controller
+    public class CategoryController : Controller
     {
-        private readonly IBrandRepository _brandRepositoty;
-        public BrandController(IBrandRepository brandRepositoty)
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryController(ICategoryRepository categoryRepository)
         {
-            _brandRepositoty = brandRepositoty;
+            _categoryRepository = categoryRepository;
         }
 
         public IActionResult Index()
         {
-            var brands=_brandRepositoty.GetAll();
+            var categories=_categoryRepository.GetAll();
 
-            return View(brands);
+            return View(categories);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryTokenAttribute]
-        public IActionResult Create(Brand brand) {
+        public IActionResult Create(Category category) {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    TempData["AddedSuccessfuly"] = "Brand Created Successfully";
-                    _brandRepositoty.Add(brand);
+                    TempData["AddedSuccessfuly"] = "Category Created Successfully";
+                    _categoryRepository.Add(category);
                     return RedirectToAction(nameof(Index));
                 }
                 catch(Exception ex) {
-                    TempData["FailedToCreate"] = "Faild To Create";
+                    TempData["FailedToCreate"] = "Faild To Create categoty";
                     return RedirectToAction(nameof(Index));
                 }
             }
             else {
-                TempData["FailedToCreate"] = "Faild To Create";
+                TempData["FailedToCreate"] = "Faild To Create categoty";
                 return RedirectToAction(nameof(Index));
             }
         
@@ -50,20 +50,20 @@ namespace PresentationLayer.Controllers
 
 
         public IActionResult Delete(int id) {
-            var brand=_brandRepositoty.Get(id);
-            return View(brand);
+            var categoty=_categoryRepository.Get(id);
+            return View(categoty);
         
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete([FromRoute] int id, Brand brand) {
+        public async Task<IActionResult> Delete([FromRoute] int id, Category category) {
 
-            if (id == brand.brand_id) {
+            if (id == category.category_id) {
                 try
                 {
-                    _brandRepositoty.Delete(brand);
-                    TempData["AddedSuccessfuly"] = "Brand deleted Successfully";
+                    _categoryRepository.Delete(category);
+                    TempData["AddedSuccessfuly"] = "Categoty deleted Successfully";
                     return RedirectToAction(nameof(Index));
 
                 }
@@ -71,48 +71,48 @@ namespace PresentationLayer.Controllers
                 {
                     //1 log exeption
                     ModelState.AddModelError(string.Empty, ex.Message);
-                    return View(brand);
+                    return View(category);
 
                 }
             }
             else
             {
-                return View(brand);
+                return View(category);
             }
         }
 
         public IActionResult Update(int id)
         {
-            var brand = _brandRepositoty.Get(id);
+            var brand = _categoryRepository.Get(id);
             return View(brand);
 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update([FromRoute] int id, Brand brand)
+        public async Task<IActionResult> Update([FromRoute] int id, Category category)
         {
 
-            if (id == brand.brand_id)
+            if (id == category.category_id)
             {
                 try
                 {
-                    _brandRepositoty.Delete(brand);
-                    TempData["AddedSuccessfuly"] = "Brand Updeted Successfully";
+                    _categoryRepository.Update(category);
+                    TempData["AddedSuccessfuly"] = "Category Updeted Successfully";
                     return RedirectToAction(nameof(Index));
 
                 }
                 catch (Exception ex)
                 {
-                    TempData["AddedSuccessfuly"] = "update prand failed";
+                    TempData["FailedToCreate"] = "update prand failed";
                     ModelState.AddModelError(string.Empty, ex.Message);
-                    return View(brand);
+                    return View(category);
 
                 }
             }
             else
             {
                 TempData["FailedToCreate"] = "update prand failed";
-                return View(brand);
+                return View(category);
             }
         }
 

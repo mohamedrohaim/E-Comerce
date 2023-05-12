@@ -19,5 +19,6 @@ namespace DataAccessLayer.Contexts
 
 
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

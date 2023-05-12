@@ -397,3 +397,6 @@ F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Brand\Index
 F:\DotNetProjects\DevWizzard\DevWizzard\bin\Debug\net5.0\libman.json
 F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Brand\Delete.cshtml.g.cs
 F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Brand\Update.cshtml.g.cs
+F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Delete.cshtml.g.cs
+F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
+F:\DotNetProjects\DevWizzard\DevWizzard\obj\Debug\net5.0\Razor\Views\Category\Update.cshtml.g.cs
