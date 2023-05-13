@@ -87,10 +87,16 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("DataAccessLayer.Entities.Product", b =>
                 {
-                    b.Property<int>("order_id")
+                    b.Property<int>("product_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("brand_id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("category_id")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("created_at")
                         .HasColumnType("datetime2");
@@ -118,25 +124,99 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime?>("updated_at")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("order_id");
+                    b.HasKey("product_id");
+
+                    b.HasIndex("brand_id");
+
+                    b.HasIndex("category_id");
 
                     b.HasIndex("discount_id");
 
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("DataAccessLayer.Entities.Review", b =>
+                {
+                    b.Property<int>("review_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("Coment_Updated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Commented_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("product_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("review_id");
+
+                    b.HasIndex("product_id");
+
+                    b.ToTable("reviews");
+                });
+
             modelBuilder.Entity("DataAccessLayer.Entities.Product", b =>
                 {
+                    b.HasOne("DataAccessLayer.Entities.Brand", "brand")
+                        .WithMany("products")
+                        .HasForeignKey("brand_id");
+
+                    b.HasOne("DataAccessLayer.Entities.Category", "category")
+                        .WithMany("products")
+                        .HasForeignKey("category_id");
+
                     b.HasOne("DataAccessLayer.Entities.Discount", "discount")
                         .WithMany("products")
                         .HasForeignKey("discount_id");
 
+                    b.Navigation("brand");
+
+                    b.Navigation("category");
+
                     b.Navigation("discount");
+                });
+
+            modelBuilder.Entity("DataAccessLayer.Entities.Review", b =>
+                {
+                    b.HasOne("DataAccessLayer.Entities.Product", "product")
+                        .WithMany("reviews")
+                        .HasForeignKey("product_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
+                });
+
+            modelBuilder.Entity("DataAccessLayer.Entities.Brand", b =>
+                {
+                    b.Navigation("products");
+                });
+
+            modelBuilder.Entity("DataAccessLayer.Entities.Category", b =>
+                {
+                    b.Navigation("products");
                 });
 
             modelBuilder.Entity("DataAccessLayer.Entities.Discount", b =>
                 {
                     b.Navigation("products");
+                });
+
+            modelBuilder.Entity("DataAccessLayer.Entities.Product", b =>
+                {
+                    b.Navigation("reviews");
                 });
 #pragma warning restore 612, 618
         }

@@ -32,6 +32,7 @@ namespace DevWizzard
             services.AddScoped<IBrandRepository, BrandRepositoty>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IDiscountRepository, DiscountRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
         }
 
@@ -59,7 +60,7 @@ namespace DevWizzard
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Product}/{action=Index}/{id?}");
             });
         }
     }

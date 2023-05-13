@@ -13,5 +13,7 @@ namespace DataAccessLayer.Entities
         public int category_id { get; set; }
         [Required(ErrorMessage ="category name is reqired")]
         public string category_name { get; set; }
+
+        public ICollection<Product> products { get; set; }
     }
 }

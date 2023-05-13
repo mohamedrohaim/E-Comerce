@@ -33,8 +33,15 @@ using DataAccessLayer.Entities;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "F:\DotNetProjects\DevWizzard\DevWizzard\Views\_ViewImports.cshtml"
+using BusinessLogicLayer.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"99464617055fdb505bb0bb7fd91f9b14f7b0d030", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e42a164063fb766482905ee761637def794f39f8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"234647cc1ae7874b211639ca85ad506060b81d8f", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
