@@ -1,0 +1,63 @@
+﻿@model ProductDetails
+@{
+    ViewData["Title"] = "Update Categoty";
+}
+@inject IBrandRepository brandRepository;
+@inject ICategoryRepository categoryRepository;
+@{
+
+    //var listOfBrands = ViewData["MyList"];
+    var brands = new SelectList(brandRepository.GetAll(), "brand_id", "brand_name");
+    var categories = new SelectList(categoryRepository.GetAll(), "category_id", "category_name");
+}
+
+<div class="mt-4 ml-3">
+    <h2>Are You Sure You want to Delete this Product ?</h2>
+    <form asp-action="Delete">
+        <div class="form-group" hidden>
+            <input hidden asp-for="@Model.product_id" />
+
+        </div>
+        <div class="form-group col-md-6">
+            <label>Product</label>
+            <input readonly asp-for="@Model.product_name" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Category</label>
+            <input readonly asp-for="@Model.category_name" class="form-control">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label>Brand</label>
+            <input readonly asp-for="@Model.brand_name" class="form-control">
+        </div>
+
+
+
+        <div class="form-group col-md-6">
+
+            <label>Price</label>
+            <input readonly asp-for="@Model.price" class="form-control" type="number">
+        </div>
+
+
+        <div class="form-group col-md-6">
+
+            <label>Quantity</label>
+            <input readonly  asp-for="@Model.quantity" class="form-control" type="number">
+        </div>
+
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea readonly class="form-control" asp-for="@Model.description" rows="3" maxlength="255"></textarea>
+        </div>
+
+
+
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+        <button type="submit" class="btn btn-primary ml-2">Delete</button>
+    </form>
+    <br />
+    <br />
+</div>

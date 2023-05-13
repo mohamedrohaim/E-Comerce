@@ -1,0 +1,67 @@
+﻿@model ProductDetails
+@{
+    ViewData["Title"] = "Update Categoty";
+}
+@inject IBrandRepository brandRepository;
+@inject ICategoryRepository categoryRepository;
+@{
+
+    //var listOfBrands = ViewData["MyList"];
+    var brands = new SelectList(brandRepository.GetAll(), "brand_id", "brand_name");
+    var categories = new SelectList(categoryRepository.GetAll(), "category_id", "category_name");
+}
+
+<div class="mt-4 ml-3">
+    <h2>Create new product</h2>
+    <form asp-action="Create">
+        <div class="form-group" hidden>
+            <input hidden asp-for="@Model.product_id" />
+
+        </div>
+        <div class="form-group col-md-6">
+            <label>Product</label>
+            <input asp-for="@Model.product_name" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Category</label>
+            <select class="form-control" asp-for="category_id" asp-items="categories">
+                <option value="@null">..Select Categoty..</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label>Brand</label>
+            <select class="form-control" asp-for="brand_id" asp-items="brands">
+                <option value="@null">..Select Brand..</option>
+            </select>
+        </div>
+
+
+
+        <div class="form-group col-md-6">
+
+            <label>Price</label>
+            <input asp-for="@Model.price" class="form-control" type="number">
+        </div>
+
+
+        <div class="form-group col-md-6">
+
+            <label>Quantity</label>
+            <input asp-for="@Model.quantity" class="form-control" type="number">
+        </div>
+
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" asp-for="@Model.description" rows="3" maxlength="255"></textarea>
+        </div>
+
+
+
+        <a asp-action="Index" class="btn btn-light">Cancel</a>
+        <button type="submit" class="btn btn-primary ml-2">Create</button>
+    </form>
+    <br />
+    <br />
+</div>

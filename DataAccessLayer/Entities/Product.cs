@@ -38,11 +38,5 @@ namespace DataAccessLayer.Entities
 
         public ICollection<Review> reviews { get; set; }
 
-
-
-
-
-
-
     }
 }

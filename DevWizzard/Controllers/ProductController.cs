@@ -27,25 +27,8 @@ namespace PresentationLayer.Controllers
             var products = _productRepository.getProductsWithAllData().ToList();
             return View(products);
         }
-
-        public IActionResult Details(int id,string VeiwName="Details")
+        public Product mappingProduct(Product product, ProductDetails productDetails)
         {
-            IEnumerable<Brand> myList=new List<Brand>();
-            myList=_brandRepository.GetAll();
-            ViewData["MyList"] = myList;
-            var  products = _productRepository.getProductsWithAllData().ToList();
-            var product=products.Where(p=>p.product_id==id).FirstOrDefault();
-            return View(VeiwName, product);
-        }
-
-        public IActionResult Update(int id)
-        {
-
-            return Details(id,"Update");
-        }
-
-  
-        public Product mappingProduct(Product product,ProductDetails productDetails) {
             product.product_name = productDetails.product_name;
             product.price = productDetails.price;
             product.description = productDetails.description;
@@ -58,6 +41,55 @@ namespace PresentationLayer.Controllers
 
 
         }
+        public IActionResult Details(int id,string VeiwName="Details")
+        {
+            IEnumerable<Brand> myList=new List<Brand>();
+            myList=_brandRepository.GetAll();
+            ViewData["MyList"] = myList;
+            var  products = _productRepository.getProductsWithAllData().ToList();
+            var product=products.Where(p=>p.product_id==id).FirstOrDefault();
+            return View(VeiwName, product);
+        }
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ProductDetails productDetails)
+        {
+
+            
+                try
+                {
+                   Product product=new Product();
+                    product = mappingProduct(product, productDetails);
+                    product.created_at= DateTime.Now;
+                    _productRepository.Add(product);
+                    TempData["AddedSuccessfuly"] = "product Created Successfully";
+                    return RedirectToAction(nameof(Index));
+
+                }
+                catch (Exception ex)
+                {
+                    TempData["FailedToCreate"] = "Creating product failed";
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(productDetails);
+
+                }
+            
+        }
+
+        public IActionResult Update(int id)
+        {
+
+            return Details(id,"Update");
+        }
+
+  
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update([FromRoute] int id, ProductDetails productDetails)
@@ -89,6 +121,42 @@ namespace PresentationLayer.Controllers
                 return View(productDetails);
             }
         }
+
+        public IActionResult Delete(int id) {
+
+            return Details(id, "Delete");
+        
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete([FromRoute] int id, ProductDetails productDetails)
+        {
+
+            if (id == productDetails.product_id)
+            {
+                try
+                {
+                    var product = _productRepository.Get(id);
+                    _productRepository.Delete(product);
+                    TempData["AddedSuccessfuly"] = "product Delete Successfully";
+                    return RedirectToAction(nameof(Index));
+
+                }
+                catch (Exception ex)
+                {
+                    TempData["FailedToCreate"] = "Deleting product failed";
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return View(productDetails);
+
+                }
+            }
+            else
+            {
+                TempData["FailedToCreate"] = "Deleting product failed";
+                return View(productDetails);
+            }
+        }
+
 
     }
 }

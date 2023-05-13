@@ -96,7 +96,7 @@ namespace PresentationLayer.Controllers
             {
                 try
                 {
-                    _brandRepositoty.Delete(brand);
+                    _brandRepositoty.Update(brand);
                     TempData["AddedSuccessfuly"] = "Brand Updeted Successfully";
                     return RedirectToAction(nameof(Index));
 
