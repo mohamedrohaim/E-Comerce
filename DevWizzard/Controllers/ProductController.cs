@@ -5,14 +5,18 @@ using PresentationLayer.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace PresentationLayer.Controllers
 {
     public class ProductController : Controller
     {
-        
+        private List<string> _allowedExtentions = new List<string>() { ".jpg", ".png" };
+        private long _MaxPosterSize = 1048576;
+
         private readonly IProductRepository _productRepository;
         private readonly IBrandRepository _brandRepository;
         private readonly ICategoryRepository _categoryRepository;
@@ -64,8 +68,33 @@ namespace PresentationLayer.Controllers
             
                 try
                 {
-                   Product product=new Product();
+                    Product product=new Product();
+                    var files = Request.Form.Files;
+                if (!files.Any())
+                {
+                    ModelState.AddModelError("image", "Please select product image");
+                    return View(productDetails);
+                }
+                var poster = files.FirstOrDefault();
+
+                if (!_allowedExtentions.Contains(Path.GetExtension(poster.FileName).ToLower()))
+                {
+                    
+                    ModelState.AddModelError("image", "not allowed extention only jpg and png are allowed");
+                    return View(productDetails);
+                }
+                if (poster.Length > _MaxPosterSize)
+                {
+                    
+                    ModelState.AddModelError("Poster", "you must select poster smaller than 1 MB");
+                    return View(productDetails);
+                }
+                     using var DataStream = new MemoryStream();
+                     await poster.CopyToAsync(DataStream);
+
+                    
                     product = mappingProduct(product, productDetails);
+                    product.image = DataStream.ToArray();
                     product.created_at= DateTime.Now;
                     _productRepository.Add(product);
                     TempData["AddedSuccessfuly"] = "product Created Successfully";
@@ -99,9 +128,33 @@ namespace PresentationLayer.Controllers
             {
                 try
                 {
-                   var product= _productRepository.Get(id);
+                    var files = Request.Form.Files;
+                    if (!files.Any())
+                    {
+                        ModelState.AddModelError("image", "Please select product image");
+                        return View(productDetails);
+                    }
+                    var poster = files.FirstOrDefault();
+
+                    if (!_allowedExtentions.Contains(Path.GetExtension(poster.FileName).ToLower()))
+                    {
+
+                        ModelState.AddModelError("image", "not allowed extention only jpg and png are allowed");
+                        return View(productDetails);
+                    }
+                    if (poster.Length > _MaxPosterSize)
+                    {
+
+                        ModelState.AddModelError("Poster", "you must select poster smaller than 1 MB");
+                        return View(productDetails);
+                    }
+                    using var DataStream = new MemoryStream();
+                    await poster.CopyToAsync(DataStream);
+
+                    var product= _productRepository.Get(id);
                     product=mappingProduct(product, productDetails);
                     product.updated_at= DateTime.Now;
+                    product.image=DataStream.ToArray();
                     _productRepository.Update(product);
                     TempData["AddedSuccessfuly"] = "product Updeted Successfully";
                     return RedirectToAction(nameof(Index));

@@ -1,68 +1,116 @@
-﻿
-@model ProductDetails
+﻿@model ProductDetails
 @{
     ViewData["Title"] = "Update Categoty";
 }
 @inject IBrandRepository brandRepository;
 @inject ICategoryRepository categoryRepository;
 @{
-  
+
     //var listOfBrands = ViewData["MyList"];
     var brands = new SelectList(brandRepository.GetAll(), "brand_id", "brand_name");
     var categories = new SelectList(categoryRepository.GetAll(), "category_id", "category_name");
 }
 
 <div class="mt-4 ml-3">
-    <h2>Are You Sure You want to Update this Product ?</h2>
-    <form asp-action="Update">
-        <div class="form-group" hidden>
-            <input hidden asp-for="@Model.product_id" />
-            
+    <h2>Update  product</h2>
+    <section class="row justify-content-between">
+        <div class="col-md-5">
+            <form asp-action="Update" enctype="multipart/form-data">
+                <div>
+
+                    <div class="form-group" hidden>
+                        <input hidden asp-for="@Model.product_id" />
+
+                    </div>
+                    <div class="form-group ">
+                        <label>Product</label>
+                        <input asp-for="@Model.product_name" class="form-control">
+                    </div>
+                    <div class="form-group ">
+                        <label>Category</label>
+                        <select class="form-control" asp-for="category_id" asp-items="categories">
+                            <option value="@null">..Select Categoty..</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ">
+                        <label>Brand</label>
+                        <select class="form-control" asp-for="brand_id" asp-items="brands">
+                            <option value="@null">..Select Brand..</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>Price</label>
+                        <input asp-for="@Model.price" class="form-control" type="number">
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Quantity</label>
+                        <input asp-for="@Model.quantity" class="form-control" type="number">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" asp-for="@Model.description" rows="3" maxlength="255"></textarea>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" asp-for="image" accept=".png,.jpg" />
+                        <label class="custom-file-label" asp-for="image"></label>
+                        <span asp-validation-for="image" class="text-danger"></span>
+                    </div>
+
+                    <br />
+                    <br />
+                    <a asp-action="Index" class="btn btn-light">
+                        <i class="bi bi-check2"></i>
+                        Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary ml-2">
+                        <i class="bi bi-x"></i>
+                        Update
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="form-group col-md-6">
-            <label >Product</label>
-            <input asp-for="@Model.product_name" class="form-control">
+
+        <div class="col-md-4">
+            <div id="image-container">
+                <img src="@(1==1 ?$"data:image/*;base64,{Convert.ToBase64String(Model.image)}":String.Empty)" alt="poster" class="img-thumbnail" />
+
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <label>Category</label>
-            <select class="form-control" asp-for="category_id" asp-items="categories">
-                <option value="@Model.category_name"></option>
-            </select>
-        </div>
-
-        <div class="form-group col-md-4">
-            <label >Brand</label>
-            <select class="form-control" asp-for="brand_id" asp-items="brands">
-                <option value="@Model.brand_name"></option>
-            </select>
-        </div>
-
-        
-
-        <div class="form-group col-md-6">
-    
-            <label >Price</label>
-            <input asp-for="@Model.price" class="form-control" type="number">
-        </div>
-
-
-        <div class="form-group col-md-6">
-         
-            <label >Quantity</label>
-            <input asp-for="@Model.quantity" class="form-control" type="number">
-        </div>
-
-
-        <div class="form-group">
-            <label>Description</label>
-            <textarea class="form-control" asp-for="@Model.description" rows="3" maxlength="255"></textarea>
-        </div>
-
-
-
-        <a asp-action="Index" class="btn btn-light">Cancel</a>
-        <button type="submit" class="btn btn-primary ml-2">Update</button>
-    </form>
-    <br/>
-    <br/>
+    <br />
+    <br />
 </div>
+ </section>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#image').on('change', function () {
+                var selectedFile = $(this).val().split('\\').pop();
+                $(this).siblings('label').text(selectedFile);
+
+                var imageContainer = $('#image-container');
+                var image = window.URL.createObjectURL(this.files[0]);
+                imageContainer.removeClass('d-none');
+                imageContainer.find('img').attr('src', image);
+
+
+            });
+        });
+
+
+    </script>
+}

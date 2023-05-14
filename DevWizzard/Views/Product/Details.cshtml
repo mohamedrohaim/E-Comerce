@@ -12,51 +12,68 @@
 }
 
 <div class="mt-4 ml-3">
-    <h2>Product Details</h2>
-    <form asp-action="Update">
-        <div class="form-group" hidden>
-            <input hidden asp-for="@Model.product_id" />
+    <h2>product Details</h2>
+    <section class="row justify-content-between">
+        <div class="col-md-5">
+            <form asp-action="">
+                <div>
 
+                    <div class="form-group" hidden>
+                        <input hidden asp-for="@Model.product_id" />
+
+                    </div>
+                    <div class="form-group " >
+                        <label>Product</label>
+                        <input asp-for="@Model.product_name" class="form-control" readonly>
+                    </div>
+                    <div class="form-group ">
+                        <label>Category</label>
+                        <input asp-for="@Model.category_name" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group ">
+                        <label>Brand</label>
+                        <input asp-for="@Model.brand_name" class="form-control" readonly>
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>Price</label>
+                        <input asp-for="@Model.price" class="form-control" type="number" readonly>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Quantity</label>
+                        <input asp-for="@Model.quantity" class="form-control" type="number" readonly>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" asp-for="@Model.description" rows="3" maxlength="255" readonly></textarea>
+                    </div>
+                    <br />
+                    <br />
+                    <a asp-action="Index" class="btn btn-light">
+                        <i class="bi bi-check2"></i>
+                        Cancel
+                    </a>
+                    
+                </div>
+            </form>
         </div>
-        <div class="form-group col-md-6">
-            <label>Product</label>
-            <input readonly asp-for="@Model.product_name" class="form-control">
+
+        <div class="col-md-6 image" style="background-image:url(data:image\/*;base64,@(Convert.ToBase64String(Model.image))); background-repeat: no-repeat;">
         </div>
-        <div class="form-group col-md-4">
-            <label>Category</label>
-            <input readonly asp-for="@Model.category_name" class="form-control">
-        </div>
-
-        <div class="form-group col-md-4">
-            <label>Brand</label>
-            <input readonly asp-for="@Model.brand_name" class="form-control">
-        </div>
+        
 
 
-
-        <div class="form-group col-md-6">
-
-            <label>Price</label>
-            <input readonly asp-for="@Model.price" class="form-control" type="number">
-        </div>
-
-
-        <div class="form-group col-md-6">
-
-            <label>Quantity</label>
-            <input readonly  asp-for="@Model.quantity" class="form-control" type="number">
-        </div>
-
-
-        <div class="form-group">
-            <label>Description</label>
-            <textarea readonly class="form-control" asp-for="@Model.description" rows="3" maxlength="255"></textarea>
-        </div>
-
-
-
-        <a asp-action="Index" class="btn btn-light">Back</a>
-    </form>
+    </section>
     <br />
     <br />
 </div>
+ </section>
