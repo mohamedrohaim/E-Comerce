@@ -40,8 +40,15 @@ using BusinessLogicLayer.Interfaces;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "F:\DotNetProjects\DevWizzard\DevWizzard\Views\_ViewImports.cshtml"
+using PresentationLayer.ViewModels.Account;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2ccefbd14dacccb4b494d5d08b1ac872e63b0775", @"/Views/Discount/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"234647cc1ae7874b211639ca85ad506060b81d8f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2253062b78087c66205aa8a68f2ef3283acd21f6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Discount_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Discount>>
     #nullable disable
@@ -215,7 +222,7 @@ using BusinessLogicLayer.Interfaces;
 #line hidden
 #nullable disable
             WriteLiteral(" LE</td>\r\n                                      <td>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077510962", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077511153", async() => {
                 WriteLiteral("\r\n                            <i class=\"fas fa-eye\"></i>  Details\r\n\r\n                            ");
             }
             );
@@ -247,7 +254,7 @@ using BusinessLogicLayer.Interfaces;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            </td>\r\n                                    <td>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077513431", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077513622", async() => {
                 WriteLiteral("\r\n                                            <i class=\"fas fa-edit\"></i>  Update\r\n                                        ");
             }
             );
@@ -279,7 +286,7 @@ using BusinessLogicLayer.Interfaces;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    </td>\r\n                                    <td>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077515943", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ccefbd14dacccb4b494d5d08b1ac872e63b077516134", async() => {
                 WriteLiteral("\r\n                                            <i class=\"fas fa-trash\"></i> Delete\r\n                                        ");
             }
             );

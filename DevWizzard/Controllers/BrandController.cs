@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using BusinessLogicLayer.Repositories;
 using DataAccessLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Controllers
 {
+    [Authorize]
     public class BrandController : Controller
     {
         private readonly IBrandRepository _brandRepositoty;

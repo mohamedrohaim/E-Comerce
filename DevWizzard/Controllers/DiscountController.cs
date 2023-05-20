@@ -1,9 +1,11 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace PresentationLayer.Controllers
 {
+    [Authorize]
     public class DiscountController:Controller
     {
         private readonly IDiscountRepository _discountRepository ;

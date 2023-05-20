@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using DataAccessLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.ViewModels;
 using System;
@@ -12,6 +13,7 @@ using static System.Net.WebRequestMethods;
 
 namespace PresentationLayer.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private List<string> _allowedExtentions = new List<string>() { ".jpg", ".png" };
@@ -26,6 +28,7 @@ namespace PresentationLayer.Controllers
             _categoryRepository= categoryRepository;
            
         }
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var products = _productRepository.getProductsWithAllData().ToList();
@@ -45,6 +48,7 @@ namespace PresentationLayer.Controllers
 
 
         }
+        [AllowAnonymous]
         public IActionResult Details(int id,string VeiwName="Details")
         {
             IEnumerable<Brand> myList=new List<Brand>();
