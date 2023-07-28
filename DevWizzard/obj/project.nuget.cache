@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hGpUfbZjkWqIaZrC7wGP1hlKSwILIwjzbu0915/VviXEq+MtVBa/GNjxIbDc1jpsl/LHaZf5OUZ5vjcRUlgwrQ==",
+  "dgSpecHash": "eQTQwSDwsSdbsTCmL6C62lDCTdWju2wZRMYhZrHRXJczq0OaiKvQvzCfnt+77XBSSIPPds3/Y+z5V18VbZ7f4A==",
   "success": true,
   "projectFilePath": "F:\\DotNetProjects\\DevWizzard\\DevWizzard\\PresentationLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tiger\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\tiger\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.17\\microsoft.aspnetcore.authentication.google.5.0.17.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.17\\microsoft.aspnetcore.cryptography.keyderivation.5.0.17.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

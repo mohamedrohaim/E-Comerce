@@ -40,7 +40,7 @@ namespace DevWizzard
            
             services.AddIdentity<User, IdentityRole>(options =>
             {
-                options.Password.RequireDigit = true;
+                //options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequiredLength = 5;
                 options.SignIn.RequireConfirmedAccount = false;
@@ -57,6 +57,7 @@ namespace DevWizzard
              services.AddScoped<SignInManager<User>, SignInManager<User>>();
             */
 
+           
 
         }
        
